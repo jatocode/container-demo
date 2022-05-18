@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      container-demo: web
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        container-demo: web
+    spec:
+      containers:
+        - image: client:latest
+          name: web
+          ports:
+            - containerPort: 3000
+          resources: {}
+      restartPolicy: Always
+status: {}

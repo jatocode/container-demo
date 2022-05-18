@@ -59,3 +59,7 @@ docker run -p 3000:3000 client:latest
 ## Docker-compose
 
 Skapade compose fil manuellt
+
+# Kubernetes
+
+Skapade service + deploy filer
