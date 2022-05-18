@@ -1,0 +1,9 @@
+services:
+  web:
+    image: client:latest
+    ports:
+      - "3000:3000"
+  api:
+    image: api:latest
+    ports:
+      - "5111:80"
