@@ -6,19 +6,23 @@ function App() {
   const [fryken, setFryken] = useState('')
   const [gapern, setGapern] = useState('')
 
-  async function getFryken() {
-    let result = await fetch('http://localhost:5111/fryken')
-    let data = await result.json()
-    setFryken(data)
-  }
-
-  async function getGapern() {
-    let result = await fetch('http://localhost:5111/gapern')
-    setGapern(await result.text())
-  }
+  useEffect(() => {
+    console.log('hey 1')
+    async function getFryken() {
+        let result = await fetch('http://localhost:5111/fryken')
+        let data = await result.json()
+        setFryken(data)
+    }
+    getFryken()
+  },[])
 
   useEffect(() => {
-    getFryken()
+    console.log('hey 2')
+
+    async function getGapern() {
+        let result = await fetch('http://localhost:5111/gapern')
+        setGapern(await result.text())
+    }  
     getGapern()
   },[])
 

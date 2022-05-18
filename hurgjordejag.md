@@ -36,3 +36,4 @@ app.UseCors(c => c.AllowAnyHeader()
         .SetIsOriginAllowed(origin => true)
         .AllowCredentials());
 
+## react strict.mode runt app gjorde att det renderades dubbelt
