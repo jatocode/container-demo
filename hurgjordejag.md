@@ -53,3 +53,9 @@ La till Dockerfile manuellt
 docker build -t frontend:latest .
 
 docker run -p 3000:3000 client:latest
+
+# Nu vill vi starta båda samtidigt
+
+## Docker-compose
+
+Skapade compose fil manuellt
