@@ -14,8 +14,6 @@ app.UseCors(c => c.AllowAnyHeader()
 
 app.UseSwagger();
 
-app.MapGet("/", () => "Demo!");
-
 int i = 0;
 app.MapGet("/Fryken", () => {
     return Results.Json("Fryken " + i++);
