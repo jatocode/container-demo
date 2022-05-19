@@ -80,7 +80,7 @@ Skapade ingress med mina sökvägar
 
 ## Komma åt den
 
-Gör port-fw till porten som api ligger på så slipper vi CORS problem
+Gör port-fw till porten som api ligger på för att matcha hårdkodat i clienten
 
  kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 5111:80
 
