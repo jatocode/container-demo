@@ -59,7 +59,28 @@ docker run -p 3000:3000 client:latest
 ## Docker-compose
 
 Skapade compose fil manuellt
+fick lägga in context som pekar på byggen
 
 # Kubernetes
 
 Skapade service + deploy filer
+
+# Slå på en ingress
+
+## Först en standard ingress nginx-controller 
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
+kubectl wait --namespace ingress-nginx \
+  --for=condition=ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=120s
+
+## Gör en egen ingress
+
+Skapade ingress med mina sökvägar
+
+## Komma åt den
+
+Gör port-fw till porten som api ligger på så slipper vi CORS problem
+
+ kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 5111:80
+

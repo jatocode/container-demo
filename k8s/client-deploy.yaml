@@ -1,24 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: client
 spec:
   replicas: 1
   selector:
     matchLabels:
-      container-demo: web
+      container-demo: client
   strategy: {}
   template:
     metadata:
       labels:
-        container-demo: web
+        container-demo: client
     spec:
       containers:
         - image: client:latest
-          name: web
+          name: client
           ports:
             - containerPort: 3000
           resources: {}
           imagePullPolicy: Never
       restartPolicy: Always
 status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    container-demo: client
+  name: client-service
+spec:
+  ports:
+    - name: "default"
+      port: 3000
+      targetPort: 3000
+  selector:
+    container-demo: client
