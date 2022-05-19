@@ -14,7 +14,7 @@ spec:
         container-demo: api
     spec:
       containers:
-        - image: api:1.1
+        - image: api:1.2
           name: api
           ports:
             - containerPort: 80

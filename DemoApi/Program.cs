@@ -3,14 +3,15 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors();
+// builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.UseCors(c => c.AllowAnyHeader()
-        .AllowAnyMethod()
-        .SetIsOriginAllowed(origin => true)
-        .AllowCredentials());
+// Kör vi i Kuberbetes behöver vi inte CORS
+// app.UseCors(c => c.AllowAnyHeader()
+//         .AllowAnyMethod()
+//         .SetIsOriginAllowed(origin => true)
+//         .AllowCredentials());
 
 app.UseSwagger();
 
