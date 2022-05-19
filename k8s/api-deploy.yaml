@@ -19,7 +19,7 @@ spec:
           ports:
             - containerPort: 80
           resources: {}
-          imagePullPolicy: Never
+          imagePullPolicy: Never # Har vi Never här så hämtar den lokalt byggda, behöver inget Registry
       restartPolicy: Always
 status: {}
 
