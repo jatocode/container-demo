@@ -33,14 +33,14 @@ spec:
   rules:
   - http:
       paths:
-      - path: /[F|f]ryken
+      - path: /ipaddress
         pathType: Prefix
         backend:
           service:
             name: api-service
             port:
-              number: 5111
-      - path: /[G|g]apern
+              number: 80
+      - path: /data
         pathType: Prefix
         backend:
           service:

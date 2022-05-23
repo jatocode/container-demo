@@ -3,31 +3,36 @@ import './App.css';
 
 function App() {
 
-  const [fryken, setFryken] = useState('')
-  const [gapern, setGapern] = useState('')
+  const [address, setAddress] = useState('')
+  const [data, setData] = useState('')
 
-  async function getFryken() {
-    let result = await fetch('http://localhost:5111/fryken')
+  async function getAddress() {
+    let result = await fetch('http://localhost:5111/ipaddress')
     let data = await result.json()
-    setFryken(data)
+    setAddress(data)
   }
 
-  async function getGapern() {
-    let result = await fetch('http://localhost:5111/gapern')
-    setGapern(await result.text())
+  async function getData() {
+    let result = await fetch('http://localhost:5111/data')
+    setData(await result.text())
   }  
 
   useEffect(() => {
-    getFryken()
-    getGapern()
+    getAddress()
+    getData()
   },[])
+
+  function refresh() {
+      getAddress();
+      getData();
+  }
 
   return (
     <div className="App">
       <h1>Testklient</h1>
-      <p>Sjön heter {fryken}</p>
-      <p>Nej, sjön heter {gapern}</p>
-      <button onClick={() => getFryken()}>Fryken!</button>
+      <p>Backend har ipaddress: {address}</p>
+      <p>Statisk data från backend: {data}</p>
+      <button onClick={() => refresh()}>Hämta data!</button>
     </div>
   );
 }

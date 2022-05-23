@@ -9,6 +9,6 @@ services:
   api:
     build:
       context: ./DemoAPI
-    image: api:1.2
+    image: api:1.0
     ports:
       - "5111:80"

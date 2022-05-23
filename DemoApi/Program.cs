@@ -1,4 +1,6 @@
-
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
@@ -15,12 +17,19 @@ var app = builder.Build();
 
 app.UseSwagger();
 
+var host = Dns.GetHostEntry(Dns.GetHostName());
+var ip = host.AddressList.FirstOrDefault(x => 
+    x.AddressFamily == AddressFamily.InterNetwork && !x.ToString().StartsWith("127"));
+
+
 int i = 0;
-app.MapGet("/Fryken", () => {
-    return Results.Json("Fryken " + i++);
+app.MapGet("/ipaddress", () =>
+{
+    return Results.Json(ip?.ToString());
 });
-app.MapGet("/Gapern", () => "Gapern");
+app.MapGet("/data", () => i++.ToString());
 
 app.UseSwaggerUI();
 
 app.Run();
+
