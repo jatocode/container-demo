@@ -84,3 +84,20 @@ Gör port-fw till porten som api ligger på för att matcha hårdkodat i cliente
 
  kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 5111:80
 
+# Överkurs, servicemesh
+
+curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install | sh
+
+linkerd check --pre
+ ( på windows sa den: try installing with --set proxyInit.runAsRoot=true)
+
+linkerd install --set proxyInit.runAsRoot=true | kubectl apply -f -
+
+linkerd check
+
+linkerd inject k8s/client-deploy.yaml | kubectl apply -f -
+linkerd inject k8s/api-deploy.yaml | kubectl apply -f -
+
+om man vill ha en dashboard: linkerd viz install | kubectl apply -f -
+
+linkerd viz dashboard
