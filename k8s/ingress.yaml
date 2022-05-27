@@ -4,11 +4,6 @@ metadata:
   name: frontend-ingress
 spec:
   ingressClassName: nginx
-  defaultBackend:
-    service:
-      name: client
-      port:
-        number: 3000
   rules:
   - http:
       paths:
