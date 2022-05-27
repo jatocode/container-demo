@@ -33,14 +33,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /ipaddress
-        pathType: Prefix
-        backend:
-          service:
-            name: api-service
-            port:
-              number: 80
-      - path: /data
+      - path: /api
         pathType: Prefix
         backend:
           service:
@@ -67,4 +60,4 @@ spec:
           service:
             name: api-service
             port:
-              number: 5111
+              number: 80

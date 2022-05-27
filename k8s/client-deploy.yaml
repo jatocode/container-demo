@@ -7,7 +7,6 @@ spec:
   selector:
     matchLabels:
       container-demo: client
-  strategy: {}
   template:
     metadata:
       labels:
@@ -18,23 +17,5 @@ spec:
           name: client
           ports:
             - containerPort: 3000
-          resources: {}
           imagePullPolicy: Never # Har vi Never här så hämtar den lokalt byggda, behöver inget Registry
       restartPolicy: Always
-status: {}
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    container-demo: client
-  name: client-service
-spec:
-  ports:
-    - name: "default"
-      port: 3000
-      targetPort: 3000
-  selector:
-    container-demo: client

@@ -23,11 +23,11 @@ var ip = host.AddressList.FirstOrDefault(x =>
 
 
 int i = 0;
-app.MapGet("/ipaddress", () =>
+app.MapGet("/api/ipaddress", () =>
 {
     return Results.Json(ip?.ToString());
 });
-app.MapGet("/data", () => i++.ToString());
+app.MapGet("/api/data", () => i++.ToString());
 
 app.UseSwaggerUI();
 
