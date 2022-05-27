@@ -29,6 +29,12 @@ app.MapGet("/api/ipaddress", () =>
 });
 app.MapGet("/api/data", () => i++.ToString());
 
+app.MapGet("/api/crash", () => {
+    // Exit application with code 1
+    Environment.Exit(1);
+});
+
+
 app.UseSwaggerUI();
 
 app.Run();
