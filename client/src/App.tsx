@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
@@ -10,8 +10,7 @@ function App() {
 
   async function getAddress() {
     let result = await fetch(API_URL + 'ipaddress')
-    let data = await result.json()
-    setAddress(data)
+    setAddress(await result.text())
   }
 
   async function getData() {
@@ -32,12 +31,8 @@ function App() {
   return (
     <div className="App">
       <h1>Testklient</h1>
-      <Suspense fallback={<div>Loading ...</div>}>
         <p>Backend har ipaddress: {address}</p>
-      </Suspense>
-      <Suspense fallback={<p>Waiting...</p>}>
         <p>Statisk data från backend: {data}</p>
-      </Suspense>
       <button onClick={() => refresh()}>Hämta data!</button>
     </div>
   );

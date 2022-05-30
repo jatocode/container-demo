@@ -3,6 +3,7 @@
 ## Installerade 
 > dotnet new web -o DemoAPI
 > dotnew new gitignore
+> dotnet dev-certs https --trust
 > cd DemoAPI
 
 ## La till Swagger

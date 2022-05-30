@@ -13,7 +13,7 @@ spec:
         container-demo: client
     spec:
       containers:
-        - image: client:1.1
+        - image: client:1.0
           name: client
           ports:
             - containerPort: 3000
