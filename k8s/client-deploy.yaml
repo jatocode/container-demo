@@ -13,9 +13,11 @@ spec:
         container-demo: client
     spec:
       containers:
-        - image: client:1.0
+        - image: containerdemotsja.azurecr.io/client:1.0
           name: client
           ports:
             - containerPort: 3000
           imagePullPolicy: Never # Har vi Never här så hämtar den lokalt byggda, behöver inget Registry
+      imagePullSecrets:
+        - name: containerdemo
       restartPolicy: Always

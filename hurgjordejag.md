@@ -85,6 +85,14 @@ Gör port-fw till porten som api ligger på för att matcha hårdkodat i cliente
 
  kubectl port-forward service/ingress-nginx-controller -n ingress-nginx 5111:80
 
+# Registry
+http://portal.azure.com skapa ett registry
+docker login -u containerdemotsja -p 5XTXmXY=k99nHttxaJZPkdYrNlz88dNe containerdemotsja.azurecr.io
+docker-compose push 
+
+kubectl create secret docker-registry containerdemo --docker-server=containerdemotsja.azurecr.io --docker-username=containerdemotsja --docker-password=5XTXmXY=k99nHttxaJZPkdYrNlz88dNe 
+
+
 # Överkurs, servicemesh
 
 curl --proto '=https' --tlsv1.2 -sSfL https://run.linkerd.io/install | sh

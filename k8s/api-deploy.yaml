@@ -13,11 +13,13 @@ spec:
         container-demo: api
     spec:
       containers:
-        - image: api:1.0
+        - image: containerdemotsja.azurecr.io/api:1.0
           name: api
           ports:
             - containerPort: 80
           imagePullPolicy: Never # Har vi Never här så hämtar den lokalt byggda, behöver inget Registry, bra för test
+      imagePullSecrets: 
+        - name: containerdemo
           # livenessProbe:
           #   httpGet:
           #     path: /api/data
