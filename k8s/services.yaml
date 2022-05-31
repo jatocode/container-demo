@@ -15,8 +15,6 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    container-demo: client
   name: client-service
 spec:
   ports:

@@ -3,10 +3,12 @@
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseCors(c => c.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed(origin => true).AllowCredentials());
 
 // Lite demo-data
 var host = Dns.GetHostEntry(Dns.GetHostName());
