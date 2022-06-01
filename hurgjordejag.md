@@ -92,6 +92,15 @@ docker-compose push
 
 kubectl create secret docker-registry containerdemo --docker-server=containerdemotsja.azurecr.io --docker-username=containerdemotsja --docker-password=5XTXmXY=k99nHttxaJZPkdYrNlz88dNe 
 
+# AKS
+
+az login
+az account set --subscription "Visual Studio Professional"
+
+.. sen samma med ingress
+kubectl create secret docker-registry containerdemo --docker-server=containerdemotsja.azurecr.io --docker-username=containerdemotsja --docker-password=5XTXmXY=k99nHttxaJZPkdYrNlz88dNe 
+
+
 
 # Överkurs, servicemesh
 
