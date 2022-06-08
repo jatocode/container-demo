@@ -1,3 +1,6 @@
+using System.Net;
+using System.Net.Sockets;
+
 // DemoAPI
 
 var builder = WebApplication.CreateBuilder(args);
