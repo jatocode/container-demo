@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Testklient</h1>
+      <h1>Container demo testklient</h1>
         <p>Backend har ipaddress: {address}</p>
         <p>Statisk data från backend: {data}</p>
       <button onClick={() => refresh()}>Hämta data!</button>
