@@ -10,7 +10,7 @@ services:
     
   api:
     build:
-      context: ./DemoAPI
+      context: ./DemoApi
     image: containerdemotsja.azurecr.io/api:1.0
     ports:
       - "5111:80"
