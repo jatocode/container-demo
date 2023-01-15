@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   client:
-    image: cr.taklamakan.se/cdemo/client:1.0
+    image: cr.taklamakan.se/cdemo/client:1.1
     ports:
       - "3000:3000"
     healthcheck:
@@ -19,11 +19,11 @@ services:
         failure_action: rollback
       
   api:
-    image: cr.taklamakan.se/cdemo/api:1.1
+    image: cr.taklamakan.se/cdemo/api:1.2
     ports:
       - "5111:80"
     healthcheck:
-      test: curl --fail http://localhost/api/data || exit 1
+      test: curl --fail http://localhost/alive || exit 1
       interval: 10s
       retries: 5
       start_period: 10s

@@ -24,8 +24,15 @@ function App() {
   },[])
 
   function refresh() {
-      getAddress();
-      getData();
+      getAddress()
+      getData()
+  }
+
+  function crash() {
+    async function kill() {
+        let result = await fetch(API_URL + 'crash')
+      }  
+      kill()
   }
 
   return (
@@ -34,6 +41,7 @@ function App() {
         <p>Backend har ipaddress: {address}</p>
         <p>Statisk data från backend: {data}</p>
       <button onClick={() => refresh()}>Hämta data!</button>
+      <button onClick={() => crash()}>Döda backend!</button>
       <footer>PROD</footer>
     </div>
   );

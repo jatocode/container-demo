@@ -22,6 +22,7 @@ int i = 0;
 app.MapGet("/api/ipaddress", () => ip.ToString() );
 app.MapGet("/api/data", () => i++.ToString("X4") );
 app.MapGet("/api/crash", () => { Environment.Exit(1); });
+app.MapGet("/alive", () => true );
 
 app.Run();
 
