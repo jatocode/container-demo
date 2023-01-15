@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  client:
+    image: cr.taklamakan.se/cdemo/client:1.0
+    ports:
+      - "3000:3000"
+    deploy:
+      replicas: 1
+
+  api:
+    image: cr.taklamakan.se/cdemo/api:1.0
+    ports:
+      - "5111:80"
+    deploy:
+      replicas: 1
+      update_config:
+       # order: start-first
+        failure_action: rollback
+        delay: 10s

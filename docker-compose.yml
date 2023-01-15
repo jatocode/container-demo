@@ -4,13 +4,16 @@ services:
   client:
     build:
       context: ./client
-    image: containerdemotsja.azurecr.io/client:1.0
+      dockerfile: Dockerfile.prod
+    image: cr.taklamakan.se/cdemo/client:1.0
     ports:
       - "3000:3000"
-    
+      
   api:
     build:
-      context: ./DemoAPI
-    image: containerdemotsja.azurecr.io/api:1.0
+      context: ./api
+    image: cr.taklamakan.se/cdemo/api:1.0
     ports:
       - "5111:80"
+
+  

@@ -20,7 +20,7 @@ int i = 0;
 
 // Endpoints
 app.MapGet("/api/ipaddress", () => ip.ToString() );
-app.MapGet("/api/data", () => i++.ToString() );
+app.MapGet("/api/data", () => i++.ToString("X4") );
 app.MapGet("/api/crash", () => { Environment.Exit(1); });
 
 app.Run();
