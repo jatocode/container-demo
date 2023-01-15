@@ -1,4 +1,4 @@
-version: "3.8"
+version: "3.9"
 
 services:
   client:
@@ -15,6 +15,6 @@ services:
     deploy:
       replicas: 1
       update_config:
-       # order: start-first
+        order: start-first
         failure_action: rollback
         delay: 10s
