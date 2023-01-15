@@ -34,6 +34,7 @@ function App() {
         <p>Backend har ipaddress: {address}</p>
         <p>Statisk data från backend: {data}</p>
       <button onClick={() => refresh()}>Hämta data!</button>
+      <footer>PROD</footer>
     </div>
   );
 }

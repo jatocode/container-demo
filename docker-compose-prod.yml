@@ -5,13 +5,29 @@ services:
     image: cr.taklamakan.se/cdemo/client:1.0
     ports:
       - "3000:3000"
+    healthcheck:
+      test: curl --fail http://localhost:3000 || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 2s
     deploy:
+      mode: replicated
       replicas: 1
-
+      update_config:
+        order: start-first
+        failure_action: rollback
+      
   api:
-    image: cr.taklamakan.se/cdemo/api:1.0
+    image: cr.taklamakan.se/cdemo/api:1.1
     ports:
       - "5111:80"
+    healthcheck:
+      test: curl --fail http://localhost/api/data || exit 1
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 2s
     deploy:
       replicas: 1
       update_config:
